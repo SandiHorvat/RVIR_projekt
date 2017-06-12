@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Projekt</string>
+    <string name="title_activity_login">Prijava</string>
+    <string name="title_activity_reg">Registracija</string>
+    <string name="title_activity_osnov_podat">Osnovni podatki</string>
+    <string name="title_activity_izracun">Izračun</string>
+
+    <!--Main Activity -->
+    <string name="pozdrav">Podzravljeni!
+No, pa začnimo!</string>
+    <string name="gumb_prijava">Prijava</string>
+    <string name="prijavljen">Že imate račun?</string>
+    <string name="gumb_reg">Registracija</string>
+    <string name="nov_upo">Nov uporabnik?</string>
+
+    <!-- Registracija -->
+    <string name="ime_tx">Ime</string>
+    <string name="upo_ime_tx">Uporabniško ime</string>
+    <string name="email_tx">Email</string>
+    <string name="geslo_tx">Geslo</string>
+    <string name="btn_potrdi">Potrdi</string>
+    <string name="hint_pass">Geslo</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_upo">Uporabniško ime</string>
+    <string name="hint_ime">Ime</string>
+
+
+    <!-- Osnovni podatki -->
+    <string name="spol_tx">Spol</string>
+    <string-array name="spol">
+        <item>moški</item>
+        <item>ženski</item>
+    </string-array>
+    <string name="starost">Starost</string>
+    <string name="visina">Višina</string>
+    <string name="teza">Teža</string>
+    <string name="enota_visina">cm</string>
+    <string name="enota_teza">kg</string>
+    <string name="btn_naprej">Naprej</string>
+
+
+    <!-- Izračun -->
+    <string name="izracun_bsdl">Za vas smo izračunali idealni vnos
+    kalorij na dan. Lahko si uredite vrednost po želji, če vam podana vrednost ne ustreza.</string>
+    <string name="kalorije">Kalorije</string>
+    <string name="btn_koncaj">Končaj</string>
+    <string name="enota_izracun">kcal</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Geslo</string>
+    <string name="action_sign_in">Prijava</string>
+    <string name="action_sign_in_short">Prijava</string>
+    <string name="error_invalid_email">Email naslov ni pravilen!</string>
+    <string name="error_invalid_password">Geslo je prekratko</string>
+    <string name="error_incorrect_password">To geslo je nepravilno!</string>
+    <string name="error_field_required">To polje je obvezno!</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_domov">Domov</string>
+    <string name="title_jedilnik">Jedilnik</string>
+    <string name="title_domov">Domov</string>
+    <string name="title_hrana">Hrana</string>
+</resources>
