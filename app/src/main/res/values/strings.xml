@@ -62,4 +62,6 @@ No, pa začnimo!</string>
     <string name="title_jedilnik">Jedilnik</string>
     <string name="title_domov">Domov</string>
     <string name="title_hrana">Hrana</string>
+    <string name="btn_genriraj">Generiraj</string>
+    <string name="znova">Znova</string>
 </resources>
