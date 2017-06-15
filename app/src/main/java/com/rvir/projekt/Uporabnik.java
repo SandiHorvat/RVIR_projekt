@@ -12,6 +12,9 @@ public class Uporabnik {
     private String geslo;
     private String spol;
     private String starost;
+    private String visina;
+    private String teza;
+    private double kalorije;
 
     public Uporabnik() {
     }
@@ -100,9 +103,7 @@ public class Uporabnik {
         this.kalorije = kalorije;
     }
 
-    private String visina;
-    private String teza;
-    private double kalorije;
+
 
 
 
