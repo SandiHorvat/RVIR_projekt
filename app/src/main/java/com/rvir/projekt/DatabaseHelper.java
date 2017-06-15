@@ -22,8 +22,8 @@ import java.util.List;
 public class DatabaseHelper{
 
     private SQLiteDatabase db;
-    public static final String DB_NAME = "Hrana1.db";
-    private final int DB_VERSION = 2;
+    public static final String DB_NAME = "GG.db";
+    private final int DB_VERSION = 1;
     public static final String TABLE_NAME = "uporabnik";
     public final String TABELA_STOLPEC_ID = "id";
     public final String TABELA_STOLPEC_IME = "ime";
@@ -65,7 +65,7 @@ public class DatabaseHelper{
                 db.execSQL(table);
                 String table2 = "create table " + TABLE_FOOD + " ("
                         + KEY_ID + " integer primary key," + KEY_NAME + " text,"
-                        + KEY_IMAGE + " blob" + KEY_CALORIES + " integer)";
+                        + KEY_IMAGE + " blob," + KEY_CALORIES + " integer)";
                 db.execSQL(table2);
             } catch (SQLException e) {
                 Log.e("DBHelper onCreate  ","Error creating table "+e.getMessage());

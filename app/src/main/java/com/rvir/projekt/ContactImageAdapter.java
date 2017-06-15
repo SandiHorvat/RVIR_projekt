@@ -42,7 +42,7 @@ public class ContactImageAdapter extends ArrayAdapter<Hrana> {
             holder = new ImageHolder();
             holder.txtTitle = (TextView)row.findViewById(R.id.txtTitle);
             holder.imgIcon = (ImageView)row.findViewById(R.id.imgIcon);
-
+            holder.txtCal = (TextView) row.findViewById(R.id.txtCal);
 
             row.setTag(holder);
         }
@@ -63,5 +63,6 @@ public class ContactImageAdapter extends ArrayAdapter<Hrana> {
     {
         ImageView imgIcon;
         TextView txtTitle;
+        TextView txtCal;
     }
 }
