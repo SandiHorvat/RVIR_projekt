@@ -30,5 +30,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(j);
             }
         });
+
+        Button seznam = (Button) findViewById(R.id.button10);
+        seznam.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent j = new Intent(v.getContext(), SQLiteDemoActivity.class);
+                startActivity(j);
+            }
+        });
     }
 }

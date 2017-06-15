@@ -42,6 +42,8 @@ public class ContactImageAdapter extends ArrayAdapter<Hrana> {
             holder = new ImageHolder();
             holder.txtTitle = (TextView)row.findViewById(R.id.txtTitle);
             holder.imgIcon = (ImageView)row.findViewById(R.id.imgIcon);
+
+
             row.setTag(holder);
         }
         else
@@ -49,9 +51,9 @@ public class ContactImageAdapter extends ArrayAdapter<Hrana> {
             holder = (ImageHolder)row.getTag();
         }
         Hrana picture = data.get(position);
-        holder.txtTitle.setText(picture.name);
+        holder.txtTitle.setText(picture._name);
 //convert byte to bitmap take from contact class
-        byte[] outImage=picture.image;
+        byte[] outImage=picture._image;
         ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
         Bitmap theImage = BitmapFactory.decodeStream(imageStream);
         holder.imgIcon.setImageBitmap(theImage);

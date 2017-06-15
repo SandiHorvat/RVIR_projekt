@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity  {
 
                 String koda = dbhelper.searchPass(username);
                 if(password.equals(koda)){
-                    Intent j = new Intent(v.getContext(), MainActivity.class);
+                    Intent j = new Intent(v.getContext(), Domov.class);
                     startActivity(j);
                 }else {
                     Toast temp = Toast.makeText(LoginActivity.this, "Napacno uporabnisko ime ali geslo!", Toast.LENGTH_SHORT);
@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity  {
 
     public void onActivityResult (int requestCode, int resultCode, Intent data){
         callbackManager.onActivityResult(requestCode,resultCode,data);
-        data = new Intent(LoginActivity.this, MainActivity.class);
+        data = new Intent(LoginActivity.this, Domov.class);
         startActivity(data);
     }
 }

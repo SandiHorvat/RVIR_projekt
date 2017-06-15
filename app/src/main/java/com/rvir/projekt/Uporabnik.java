@@ -31,6 +31,19 @@ public class Uporabnik {
         this.kalorije = kalorije;
     }
 
+    public Uporabnik(int id,String ime, String email, String geslo, String spol, String starost, String visina, String teza, double kalorije) {
+
+        this.id = id;
+        this.ime = ime;
+        this.email = email;
+        this.geslo = geslo;
+        this.spol = spol;
+        this.starost = starost;
+        this.visina = visina;
+        this.teza = teza;
+        this.kalorije = kalorije;
+    }
+
     public int getId() {
         return id;
     }

@@ -22,8 +22,8 @@ import java.util.List;
 public class DatabaseHelper{
 
     private SQLiteDatabase db;
-    public static final String DB_NAME = "Prehrana1.db";
-    private final int DB_VERSION = 1;
+    public static final String DB_NAME = "Hrana1.db";
+    private final int DB_VERSION = 2;
     public static final String TABLE_NAME = "uporabnik";
     public final String TABELA_STOLPEC_ID = "id";
     public final String TABELA_STOLPEC_IME = "ime";
@@ -35,13 +35,13 @@ public class DatabaseHelper{
     public final String TABELA_STOLPEC_TEZA = "teza";
     public final String TABELA_STOLPEC_KALORIJE = "kalorije";
 
-    private static final String TABLE_HRANA = "hrana";
+    private static final String TABLE_FOOD = "seznam_hrana";
 
     // Contacts Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "ime";
     private static final String KEY_IMAGE = "slika";
-    private static final String KEY_CALORIES = "kalorije";
+    private static final String KEY_CALORIES = "kal";
 
     Context context;
 
@@ -63,8 +63,8 @@ public class DatabaseHelper{
                         + " text," + TABELA_STOLPEC_TEZA + " text," + TABELA_STOLPEC_KALORIJE+ " real)";
 
                 db.execSQL(table);
-                String table2 = "create table " + TABLE_HRANA + " ("
-                        + KEY_ID + " integer primary key autoincrement," + KEY_NAME + " text,"
+                String table2 = "create table " + TABLE_FOOD + " ("
+                        + KEY_ID + " integer primary key," + KEY_NAME + " text,"
                         + KEY_IMAGE + " blob" + KEY_CALORIES + " integer)";
                 db.execSQL(table2);
             } catch (SQLException e) {
@@ -75,7 +75,7 @@ public class DatabaseHelper{
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("drop table " + TABLE_NAME);
-            db.execSQL("drop table " + TABLE_HRANA);
+            db.execSQL("drop table " + TABLE_FOOD);
             this.onCreate(db);
         }
 
@@ -156,20 +156,22 @@ public class DatabaseHelper{
         return b;
     }
 
-    void addHrana(Hrana hrana) {
+    public Boolean addHrana(Hrana hrana) {
+
 
         ContentValues values = new ContentValues();
-        values.put(KEY_NAME, hrana.name);
-        values.put(KEY_IMAGE, hrana.image);
-        values.put(KEY_CALORIES, hrana.calories);
+        values.put(KEY_NAME, hrana._name);
+        values.put(KEY_IMAGE, hrana._image);
+        values.put(KEY_CALORIES, hrana._calories);
 
 // Inserting Row
-        db.insert(TABLE_HRANA, null, values);
-        db.close(); // Closing database connection
+        return db.insert(TABLE_FOOD,null,values)>0;
+
+
     }
 
     // Getting single contact
-    Hrana getHrana(int id) {
+  /* Hrana getHrana(int id) {
          db = this.dbManager.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_HRANA, new String[] { KEY_ID,
@@ -184,13 +186,14 @@ public class DatabaseHelper{
 // return contact
         return hrana;
 
-    }
+    }*/
 
     // Getting All Contacts
     public List<Hrana> getAllHrana() {
         List<Hrana> hranaList = new ArrayList<Hrana>();
 // Select All Query
-        String selectQuery = "SELECT * FROM hrana ORDER BY ime";
+        String selectQuery = "SELECT * FROM seznam_hrana ORDER BY ime";
+
         Cursor cursor = db.rawQuery(selectQuery, null);
 // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
@@ -205,7 +208,7 @@ public class DatabaseHelper{
             } while (cursor.moveToNext());
         }
 // close inserting data from database
-        db.close();
+
 // return contact list
         return hranaList;
 
@@ -221,7 +224,7 @@ public class DatabaseHelper{
         values.put(KEY_IMAGE, hrana.getCalories());
 
 // updating row
-        return db.update(TABLE_HRANA, values, KEY_ID + " = ?",
+        return db.update(TABLE_FOOD, values, KEY_ID + " = ?",
                 new String[] { String.valueOf(hrana.getId()) });
 
     }
