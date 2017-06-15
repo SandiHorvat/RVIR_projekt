@@ -65,4 +65,6 @@ No, pa začnimo!</string>
     <string name="btn_genriraj">Generiraj</string>
     <string name="znova">Znova</string>
     <string name="facebook_app_id">1921953354715499</string>
+    <string name="title_search">Iskanje</string>
+    <string name="title_favourite">Priljubljeno</string>
 </resources>
