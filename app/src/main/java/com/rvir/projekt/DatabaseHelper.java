@@ -92,7 +92,7 @@ public class DatabaseHelper{
         }
     }
 
-    public Boolean addRow(String stolpec_ena,String stolpec_dva,String stolpec_tri,String stolpec_stiri,String stolpec_pet,String stolpec_sest,String stolpec_sedem, double stolpec_osem){
+    /*public Boolean addRow(String stolpec_ena,String stolpec_dva,String stolpec_tri,String stolpec_stiri,String stolpec_pet,String stolpec_sest,String stolpec_sedem, double stolpec_osem){
 
         ContentValues initialValues = new ContentValues();
         initialValues.put(TABELA_STOLPEC_IME, stolpec_ena);
@@ -104,6 +104,22 @@ public class DatabaseHelper{
         initialValues.put(TABELA_STOLPEC_TEZA, stolpec_sedem);
         initialValues.put(TABELA_STOLPEC_KALORIJE, stolpec_osem);
 
+
+        return db.insert(TABLE_NAME,null, initialValues)>0;
+
+    }*/
+
+    public Boolean addRow(Uporabnik u){
+
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(TABELA_STOLPEC_IME, u.getIme());
+        initialValues.put(TABELA_STOLPEC_EMAIL,u.getEmail());
+        initialValues.put(TABELA_STOLPEC_GESLO,u.getGeslo());
+        initialValues.put(TABELA_STOLPEC_SPOL, u.getSpol());
+        initialValues.put(TABELA_STOLPEC_STAROST,u.getStarost());
+        initialValues.put(TABELA_STOLPEC_VISINA,u.getVisina());
+        initialValues.put(TABELA_STOLPEC_TEZA, u.getTeza());
+        initialValues.put(TABELA_STOLPEC_KALORIJE, u.getKalorije());
 
         return db.insert(TABLE_NAME,null, initialValues)>0;
 

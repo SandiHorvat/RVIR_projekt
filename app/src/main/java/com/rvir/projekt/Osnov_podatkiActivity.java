@@ -114,12 +114,14 @@ public class Osnov_podatkiActivity extends AppCompatActivity {
                     if(spol_selected=="moški"){
                         k.putExtra("kalorije", String.valueOf(male_calories));
                         Log.d("kalorije_moski", String.valueOf(male_calories));
-                        Insert(ime,email,geslo,spol_selected,starost_str,visina_str,teza_str,male_calories);
+                        Uporabnik upor = new Uporabnik(ime,email,geslo,spol_selected,starost_str,visina_str,teza_str,female_calories);
+                        Insert(upor);
                     }
                     else{
                         k.putExtra("kalorije", String.valueOf(female_calories));
                         Log.d("kalorijezenska", String.valueOf(female_calories));
-                        Insert(ime,email,geslo,spol_selected,starost_str,visina_str,teza_str,female_calories);
+                        Uporabnik upor = new Uporabnik(ime,email,geslo,spol_selected,starost_str,visina_str,teza_str,female_calories);
+                        Insert(upor);
                     }
 
                     startActivity(k);
@@ -129,8 +131,8 @@ public class Osnov_podatkiActivity extends AppCompatActivity {
 
     }
 
-    public void Insert(String ime, String email, String geslo, String spol, String starost, String visina, String teza, double kalorije) {
-        Boolean insert = mydb.addRow(ime, email, geslo, spol, starost, visina, teza, kalorije);
+    public void Insert(Uporabnik u) {
+        Boolean insert = mydb.addRow(u);
 
         if(insert){
             Toast.makeText(this,"success", Toast.LENGTH_SHORT).show();
