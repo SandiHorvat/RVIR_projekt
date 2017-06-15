@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.app.Fragment;
 
 public class Domov extends AppCompatActivity {
 
@@ -18,13 +19,29 @@ public class Domov extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_domov:
-                    mTextMessage.setText(R.string.title_domov);
+                    DomovFragment d = new DomovFragment();
+                    getFragmentManager().beginTransaction().replace(R.id.frame, d).commit();
+                    //mTextMessage.setText(R.string.title_domov);
                     return true;
                 case R.id.navigation_jedilnik:
-                    mTextMessage.setText(R.string.title_jedilnik);
+                    JedilnikFragment j = new JedilnikFragment();
+                    getFragmentManager().beginTransaction().replace(R.id.frame, j).commit();
+                    //mTextMessage.setText(R.string.title_jedilnik);
                     return true;
                 case R.id.navigation_hrana:
-                    mTextMessage.setText(R.string.title_hrana);
+                    HranaFragment h = new HranaFragment();
+                    getFragmentManager().beginTransaction().replace(R.id.frame, h).commit();
+                    //mTextMessage.setText(R.string.title_hrana);
+                    return true;
+                case R.id.navigation_iskanje:
+                    IskanjeFragment i = new IskanjeFragment();
+                    getFragmentManager().beginTransaction().replace(R.id.frame, i).commit();
+                    //mTextMessage.setText(R.string.title_search);
+                    return true;
+                case R.id.navigation_priljub:
+                    PriljubljeniFragment p = new PriljubljeniFragment();
+                    getFragmentManager().beginTransaction().replace(R.id.frame, p).commit();
+                    //mTextMessage.setText(R.string.title_favourite);
                     return true;
             }
             return false;

@@ -16,6 +16,15 @@
         android:icon="@drawable/ic_local_pizza_black_24dp"
         android:title="@string/title_hrana" />
 
+    <item
+        android:id="@+id/navigation_iskanje"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/title_search"/>
+
+    <item
+        android:id="@+id/navigation_priljub"
+        android:icon="@drawable/ic_favorite_black_24dp"
+        android:title="@string/title_favourite"/>
 
 
 </menu>
