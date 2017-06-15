@@ -67,6 +67,9 @@
             android:name=".Domov"
             android:label="@string/title_activity_domov"></activity>
 
+
+
+
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAhyEQ4EaAIL6QTcUj5V5Ww8nPon5DiL0w"/>
 

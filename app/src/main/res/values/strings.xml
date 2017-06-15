@@ -67,4 +67,5 @@ No, pa začnimo!</string>
     <string name="facebook_app_id">1921953354715499</string>
     <string name="title_search">Iskanje</string>
     <string name="title_favourite">Priljubljeno</string>
+    <string name="title_activity_iskanje">Iskanje</string>
 </resources>

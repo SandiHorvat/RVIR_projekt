@@ -27,11 +27,7 @@ public class Domov extends AppCompatActivity {
                     getFragmentManager().beginTransaction().replace(R.id.frame, j).commit();
                     //mTextMessage.setText(R.string.title_jedilnik);
                     return true;
-                case R.id.navigation_hrana:
-                    HranaFragment h = new HranaFragment();
-                    getFragmentManager().beginTransaction().replace(R.id.frame, h).commit();
-                    //mTextMessage.setText(R.string.title_hrana);
-                    return true;
+
                 case R.id.navigation_iskanje:
                     IskanjeFragment i = new IskanjeFragment();
                     getFragmentManager().beginTransaction().replace(R.id.frame, i).commit();
