@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Lupusus on 23. 05. 2017.
  */
@@ -19,7 +22,7 @@ import android.util.Log;
 public class DatabaseHelper{
 
     private SQLiteDatabase db;
-    public static final String DB_NAME = "Prehrana.db";
+    public static final String DB_NAME = "Prehrana1.db";
     private final int DB_VERSION = 1;
     public static final String TABLE_NAME = "uporabnik";
     public final String TABELA_STOLPEC_ID = "id";
@@ -31,6 +34,14 @@ public class DatabaseHelper{
     public final String TABELA_STOLPEC_VISINA = "visina";
     public final String TABELA_STOLPEC_TEZA = "teza";
     public final String TABELA_STOLPEC_KALORIJE = "kalorije";
+
+    private static final String TABLE_HRANA = "hrana";
+
+    // Contacts Table Columns names
+    private static final String KEY_ID = "id";
+    private static final String KEY_NAME = "ime";
+    private static final String KEY_IMAGE = "slika";
+    private static final String KEY_CALORIES = "kalorije";
 
     Context context;
 
@@ -52,11 +63,10 @@ public class DatabaseHelper{
                         + " text," + TABELA_STOLPEC_TEZA + " text," + TABELA_STOLPEC_KALORIJE+ " real)";
 
                 db.execSQL(table);
-                /*String table2 = "create table " + TABELA_IME2 + " ("
-                        + TABELA_STOLPEC_IDH + " integer primary key autoincrement,"
-                        + TABELA_STOLPEC_IMEH + " text," + TABELA_STOLPEC_SLIKA + " blob," + TABELA_STOLPEC_KALORIJE
-                        + " text," + TABELA_STOLPEC_FAV  + " integer default 0)";
-                db.execSQL(table2);*/
+                String table2 = "create table " + TABLE_HRANA + " ("
+                        + KEY_ID + " integer primary key autoincrement," + KEY_NAME + " text,"
+                        + KEY_IMAGE + " blob" + KEY_CALORIES + " integer)";
+                db.execSQL(table2);
             } catch (SQLException e) {
                 Log.e("DBHelper onCreate  ","Error creating table "+e.getMessage());
             }
@@ -65,7 +75,7 @@ public class DatabaseHelper{
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("drop table " + TABLE_NAME);
-            //db.execSQL("drop table " + TABELA_IME2);
+            db.execSQL("drop table " + TABLE_HRANA);
             this.onCreate(db);
         }
 
@@ -92,22 +102,7 @@ public class DatabaseHelper{
         }
     }
 
-    /*public Boolean addRow(String stolpec_ena,String stolpec_dva,String stolpec_tri,String stolpec_stiri,String stolpec_pet,String stolpec_sest,String stolpec_sedem, double stolpec_osem){
 
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(TABELA_STOLPEC_IME, stolpec_ena);
-        initialValues.put(TABELA_STOLPEC_EMAIL,stolpec_dva);
-        initialValues.put(TABELA_STOLPEC_GESLO,stolpec_tri);
-        initialValues.put(TABELA_STOLPEC_SPOL, stolpec_stiri);
-        initialValues.put(TABELA_STOLPEC_STAROST,stolpec_pet);
-        initialValues.put(TABELA_STOLPEC_VISINA,stolpec_sest);
-        initialValues.put(TABELA_STOLPEC_TEZA, stolpec_sedem);
-        initialValues.put(TABELA_STOLPEC_KALORIJE, stolpec_osem);
-
-
-        return db.insert(TABLE_NAME,null, initialValues)>0;
-
-    }*/
 
     public Boolean addRow(Uporabnik u){
 
@@ -124,32 +119,6 @@ public class DatabaseHelper{
         return db.insert(TABLE_NAME,null, initialValues)>0;
 
     }
-
-   /* public boolean insertImg(String name,  byte[] image, String calories, int fav){
-
-        /*String sql = "INSERT INTO FOOD VALUES (NULL, ?, ?, ?, ?)";
-
-        SQLiteStatement statement = db.compileStatement(sql);
-        statement.clearBindings();
-
-        statement.bindString(1, name);
-        statement.bindBlob(2, image);
-        statement.bindString(3, calories);
-        statement.bindDouble(4, fav);
-
-        statement.executeInsert();*/
-       /* ContentValues initialValues = new ContentValues();
-        initialValues.put(TABELA_STOLPEC_IMEH, name);
-        initialValues.put(TABELA_STOLPEC_SLIKA,image);
-        initialValues.put(TABELA_STOLPEC_KALORIJE,calories);
-        initialValues.put(TABELA_STOLPEC_FAV, fav);
-
-
-        return db.insert(TABELA_IME2,null, initialValues)>0;
-
-    }*/
-
-
 
     public Cursor getAll() throws SQLException {
         String rawQueryString="SELECT " + TABELA_STOLPEC_IME + ","
@@ -185,5 +154,75 @@ public class DatabaseHelper{
             while(cursor.moveToNext());
         }
         return b;
+    }
+
+    void addHrana(Hrana hrana) {
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, hrana.name);
+        values.put(KEY_IMAGE, hrana.image);
+        values.put(KEY_CALORIES, hrana.calories);
+
+// Inserting Row
+        db.insert(TABLE_HRANA, null, values);
+        db.close(); // Closing database connection
+    }
+
+    // Getting single contact
+    Hrana getHrana(int id) {
+         db = this.dbManager.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_HRANA, new String[] { KEY_ID,
+                        KEY_NAME, KEY_IMAGE, KEY_CALORIES }, KEY_ID + "=?",
+                new String[] { String.valueOf(id) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        Hrana hrana = new Hrana(Integer.parseInt(cursor.getString(0)),
+                cursor.getString(1), cursor.getBlob(1), Integer.parseInt(cursor.getString(1)));
+
+// return contact
+        return hrana;
+
+    }
+
+    // Getting All Contacts
+    public List<Hrana> getAllHrana() {
+        List<Hrana> hranaList = new ArrayList<Hrana>();
+// Select All Query
+        String selectQuery = "SELECT * FROM hrana ORDER BY ime";
+        Cursor cursor = db.rawQuery(selectQuery, null);
+// looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Hrana hrana = new Hrana();
+                hrana.setId(Integer.parseInt(cursor.getString(0)));
+                hrana.setName(cursor.getString(1));
+                hrana.setImage(cursor.getBlob(2));
+                hrana.setCalories(Integer.parseInt(cursor.getString(3)));
+// Adding contact to list
+                hranaList.add(hrana);
+            } while (cursor.moveToNext());
+        }
+// close inserting data from database
+        db.close();
+// return contact list
+        return hranaList;
+
+    }
+
+    // Updating single contact
+    public int updateHrana(Hrana hrana) {
+
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, hrana.getName());
+        values.put(KEY_IMAGE, hrana.getImage());
+        values.put(KEY_IMAGE, hrana.getCalories());
+
+// updating row
+        return db.update(TABLE_HRANA, values, KEY_ID + " = ?",
+                new String[] { String.valueOf(hrana.getId()) });
+
     }
 }
