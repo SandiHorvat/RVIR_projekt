@@ -22,7 +22,7 @@ public class Domov extends AppCompatActivity {
         iskanje.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent j = new Intent(v.getContext(), IskanjeActivity.class);
+                Intent j = new Intent(v.getContext(), SQLiteDemoActivity.class);
                 startActivity(j);
             }
         });

@@ -29,7 +29,7 @@ public class Izracun extends AppCompatActivity {
         btn_koncaj.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent i = new Intent(v.getContext(), Domov.class);
+                Intent i = new Intent(v.getContext(), MainActivity.class);
                 startActivity(i);
             }
         });

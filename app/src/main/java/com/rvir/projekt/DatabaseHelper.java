@@ -22,7 +22,7 @@ import java.util.List;
 public class DatabaseHelper{
 
     private SQLiteDatabase db;
-    public static final String DB_NAME = "GG.db";
+    public static final String DB_NAME = "delaj.db";
     private final int DB_VERSION = 1;
     public static final String TABLE_NAME = "uporabnik";
     public final String TABELA_STOLPEC_ID = "id";
@@ -64,7 +64,7 @@ public class DatabaseHelper{
 
                 db.execSQL(table);
                 String table2 = "create table " + TABLE_FOOD + " ("
-                        + KEY_ID + " integer primary key autoincrement," + KEY_NAME + " text,"
+                        + KEY_ID + " integer primary key ," + KEY_NAME + " text,"
                         + KEY_IMAGE + " blob," + KEY_CALORIES + " integer)";
                 db.execSQL(table2);
             } catch (SQLException e) {
@@ -193,6 +193,81 @@ public class DatabaseHelper{
         List<Hrana> hranaList = new ArrayList<Hrana>();
 // Select All Query
         String selectQuery = "SELECT * FROM seznam_hrana ORDER BY ime";
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+// looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Hrana hrana = new Hrana();
+                hrana.setId(Integer.parseInt(cursor.getString(0)));
+                hrana.setName(cursor.getString(1));
+                hrana.setImage(cursor.getBlob(2));
+                hrana.setCalories(Integer.parseInt(cursor.getString(3)));
+// Adding contact to list
+                hranaList.add(hrana);
+            } while (cursor.moveToNext());
+        }
+// close inserting data from database
+
+// return contact list
+        return hranaList;
+
+    }
+
+    public List<Hrana> generate() {
+        List<Hrana> hranaList = new ArrayList<Hrana>();
+// Select All Query
+        String selectQuery = "SELECT * FROM seznam_hrana WHERE kal between 50 and 300";
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+// looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Hrana hrana = new Hrana();
+                hrana.setId(Integer.parseInt(cursor.getString(0)));
+                hrana.setName(cursor.getString(1));
+                hrana.setImage(cursor.getBlob(2));
+                hrana.setCalories(Integer.parseInt(cursor.getString(3)));
+// Adding contact to list
+                hranaList.add(hrana);
+            } while (cursor.moveToNext());
+        }
+// close inserting data from database
+
+// return contact list
+        return hranaList;
+
+    }
+
+    public List<Hrana> generate1() {
+        List<Hrana> hranaList = new ArrayList<Hrana>();
+// Select All Query
+        String selectQuery = "SELECT * FROM seznam_hrana WHERE kal between 301 and 500";
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+// looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Hrana hrana = new Hrana();
+                hrana.setId(Integer.parseInt(cursor.getString(0)));
+                hrana.setName(cursor.getString(1));
+                hrana.setImage(cursor.getBlob(2));
+                hrana.setCalories(Integer.parseInt(cursor.getString(3)));
+// Adding contact to list
+                hranaList.add(hrana);
+            } while (cursor.moveToNext());
+        }
+// close inserting data from database
+
+// return contact list
+        return hranaList;
+
+    }
+
+    public List<Hrana> generate2() {
+        List<Hrana> hranaList = new ArrayList<Hrana>();
+// Select All Query
+        String selectQuery = "SELECT * FROM seznam_hrana WHERE kal between 501 and 800";
 
         Cursor cursor = db.rawQuery(selectQuery, null);
 // looping through all rows and adding to list

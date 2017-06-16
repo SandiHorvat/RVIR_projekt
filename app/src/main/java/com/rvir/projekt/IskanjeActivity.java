@@ -48,7 +48,7 @@ public class IskanjeActivity extends AppCompatActivity {
 
 // get image from drawable
         Bitmap image = BitmapFactory.decodeResource(getResources(),
-                R.drawable.golaz);
+                R.drawable.pizza);
 
         /*Bitmap image1 = BitmapFactory.decodeResource(getResources(),
                 R.drawable.monkas);*/
@@ -64,7 +64,7 @@ public class IskanjeActivity extends AppCompatActivity {
 // Inserting Contacts
         Log.d("Insert: ", "Inserting ..");
         //dbhelper.addHrana(new Hrana("Banana", imageInByte, 50));
-        if(dbhelper.addHrana(new Hrana("Golaz", imageInByte, 80))){
+        if(dbhelper.addHrana(new Hrana("pizza", imageInByte, 520))){
             Toast.makeText(this,"Uspešno", Toast.LENGTH_LONG).show();
 
         }else{
