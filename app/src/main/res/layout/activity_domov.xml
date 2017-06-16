@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:text="Iskanje"
+        android:background="@android:color/holo_green_light"
         app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_constraintBottom_creator="1"
         android:layout_marginStart="5dp"
@@ -26,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="447dp"
         android:text="Priljubljene"
+        android:background="@android:color/holo_green_light"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,11 +37,57 @@
         android:id="@+id/button20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="25dp"
+        android:layout_marginRight="32dp"
         android:layout_marginTop="447dp"
         android:text="Jedilnik"
+        android:background="@android:color/holo_green_light"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginEnd="32dp" />
+
+    <ListView
+        android:layout_width="345dp"
+        android:layout_height="64dp"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="62dp" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zajtrk"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:layout_editor_absoluteX="5dp" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kosilo"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="163dp" />
+
+    <ListView
+        android:layout_width="339dp"
+        android:layout_height="66dp"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Večerja"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="288dp" />
+
+    <ListView
+        android:layout_width="339dp"
+        android:layout_height="61dp"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="334dp" />
 
 </android.support.constraint.ConstraintLayout>
