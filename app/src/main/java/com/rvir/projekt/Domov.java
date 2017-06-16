@@ -45,14 +45,14 @@ public class Domov extends AppCompatActivity {
             }
         });
 
-        Button maps = (Button) findViewById(R.id.button11);
-        maps.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent j = new Intent(v.getContext(), MapActivity.class);
-                startActivity(j);
-            }
-        });
+        //Button maps = (Button) findViewById(R.id.button11);
+        //maps.setOnClickListener(new View.OnClickListener(){
+           // @Override
+          //  public void onClick(View v){
+         //       Intent j = new Intent(v.getContext(), MapActivity.class);
+         //       startActivity(j);
+        //    }
+       // });
 
 
 
