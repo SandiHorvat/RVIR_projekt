@@ -24,15 +24,15 @@
 
         android:orientation="horizontal">
 
+
         <EditText
             android:id="@+id/editText"
             android:layout_width="wrap_content"
-            android:layout_height="73dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="iščite hrano"
-            android:textSize="24sp" />
+            android:hint="Ime " />
     </LinearLayout>
 
     <LinearLayout
@@ -45,6 +45,11 @@
         android:layout_weight="0.16">
 
 
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Isci" />
     </LinearLayout>
 
 
@@ -58,13 +63,6 @@
         android:weightSum="1">
 
 
-        <Button
-            android:id="@+id/button9"
-            android:layout_width="149dp"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_green_light"
-            android:text="Isci"
-            android:textAlignment="center" />
     </LinearLayout>
 
     <LinearLayout

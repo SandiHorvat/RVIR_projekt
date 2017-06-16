@@ -35,7 +35,7 @@ public class SQLiteDemoActivity extends Activity {
 
 // get image from drawable
        Bitmap image = BitmapFactory.decodeResource(getResources(),
-                R.drawable.banana);
+                R.drawable.kanelonicic);
 
         /*Bitmap image1 = BitmapFactory.decodeResource(getResources(),
                 R.drawable.monkas);*/
@@ -51,7 +51,7 @@ public class SQLiteDemoActivity extends Activity {
 // Inserting Contacts
         Log.d("Insert: ", "Inserting ..");
         //dbhelper.addHrana(new Hrana("Banana", imageInByte, 50));
-        if(dbhelper.addHrana(new Hrana("Banana", imageInByte, 10))){
+        if(dbhelper.addHrana(new Hrana("Kaneloni", imageInByte, 150))){
             Toast.makeText(this,"Uspešno", Toast.LENGTH_LONG).show();
 
         }else{

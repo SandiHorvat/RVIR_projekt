@@ -10,6 +10,8 @@ import android.widget.TextView;
 public class Domov extends AppCompatActivity {
 
     private TextView mTextMessage;
+    Uporabnik u;
+    DatabaseHelper db;
 
 
 
@@ -36,16 +38,19 @@ public class Domov extends AppCompatActivity {
             }
         });
 
+
+
         Button jedilnik = (Button) findViewById(R.id.button20);
         jedilnik.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent j = new Intent(v.getContext(), JedilnikActivity.class);
+
                 startActivity(j);
             }
         });
 
-        Button maps = (Button) findViewById(R.id.button11);
+        Button maps = (Button) findViewById(R.id.button9);
         maps.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

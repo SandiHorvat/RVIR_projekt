@@ -35,13 +35,13 @@ public class DatabaseHelper{
     public final String TABELA_STOLPEC_TEZA = "teza";
     public final String TABELA_STOLPEC_KALORIJE = "kalorije";
 
-    private static final String TABLE_FOOD = "seznam_hrana";
+    public static final String TABLE_FOOD = "seznam_hrana";
 
     // Contacts Table Columns names
-    private static final String KEY_ID = "id";
-    private static final String KEY_NAME = "ime";
-    private static final String KEY_IMAGE = "slika";
-    private static final String KEY_CALORIES = "kal";
+    public static final String KEY_ID = "id";
+    public static final String KEY_NAME = "ime";
+    public static final String KEY_IMAGE = "slika";
+    public static final String KEY_CALORIES = "kal";
 
     Context context;
 
@@ -64,7 +64,7 @@ public class DatabaseHelper{
 
                 db.execSQL(table);
                 String table2 = "create table " + TABLE_FOOD + " ("
-                        + KEY_ID + " integer primary key," + KEY_NAME + " text,"
+                        + KEY_ID + " integer primary key autoincrement," + KEY_NAME + " text,"
                         + KEY_IMAGE + " blob," + KEY_CALORIES + " integer)";
                 db.execSQL(table2);
             } catch (SQLException e) {
@@ -228,4 +228,34 @@ public class DatabaseHelper{
                 new String[] { String.valueOf(hrana.getId()) });
 
     }
+
+    public Cursor getHranaDescription(int id) {
+         db = this.dbManager.getReadableDatabase();
+        String[] selections = {String.valueOf(id)};
+        String columns[] = {KEY_NAME, KEY_CALORIES};
+        Cursor cursor = db.query(TABLE_FOOD, columns, KEY_ID + "=?",
+                selections, null, null, null);
+        //db.close();
+        return cursor;
+    }
+
+    public Uporabnik getUporabnik(String email, String password) {
+        Uporabnik u = new Uporabnik();
+
+        Cursor c = null;
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + TABELA_STOLPEC_EMAIL  + " = '" + email + "' AND " + TABELA_STOLPEC_GESLO + " = '" + password + "'";
+        c = db.rawQuery(query, null);
+        if (c != null) {
+            if (c.moveToFirst()) {
+                u = new Uporabnik(c.getString(c.getColumnIndex("email")), c.getString(c.getColumnIndex("geslo")));
+                u.setId(c.getInt(c.getColumnIndex("id")));
+            }
+        }
+        c.close();
+        db.close();
+        return u;
+    }
+
+
+
 }

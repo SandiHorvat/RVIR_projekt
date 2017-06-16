@@ -82,6 +82,9 @@
         <activity
             android:name=".MapActivity"
             android:label="Google Maps"></activity>
+        <activity
+            android:name=".HranaSearch"
+            android:label="Search"></activity>
 
 
 
