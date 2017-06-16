@@ -69,6 +69,15 @@
         <activity
             android:name=".SQLiteDemoActivity"
             android:label="slike"></activity>
+        <activity
+            android:name=".IskanjeActivity"
+            android:label="Iskanje"></activity>
+        <activity
+            android:name=".PriljubljeniActivity"
+            android:label="Priljubljeni"></activity>
+        <activity
+            android:name=".JedilnikActivity"
+            android:label="Jedilnik"></activity>
 
 
 

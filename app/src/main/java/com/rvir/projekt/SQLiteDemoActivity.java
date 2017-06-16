@@ -25,7 +25,7 @@ public class SQLiteDemoActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.seznam_hrana);
+        setContentView(R.layout.iskanje);
 
         DatabaseHelper dbhelper = new DatabaseHelper(this);
         dbhelper.open();

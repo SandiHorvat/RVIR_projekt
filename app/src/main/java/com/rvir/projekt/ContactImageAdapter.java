@@ -52,6 +52,9 @@ public class ContactImageAdapter extends ArrayAdapter<Hrana> {
         }
         Hrana picture = data.get(position);
         holder.txtTitle.setText(picture._name);
+        String kalorije = Integer.toString(picture._calories);
+
+        holder.txtCal.setText(kalorije);
 //convert byte to bitmap take from contact class
         byte[] outImage=picture._image;
         ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
