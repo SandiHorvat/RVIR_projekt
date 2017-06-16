@@ -10,7 +10,6 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -50,13 +49,8 @@ public class SQLiteDemoActivity extends Activity {
  * */
 // Inserting Contacts
         Log.d("Insert: ", "Inserting ..");
-        //dbhelper.addHrana(new Hrana("Banana", imageInByte, 50));
-        if(dbhelper.addHrana(new Hrana("Kaneloni", imageInByte, 150))){
-            Toast.makeText(this,"Uspešno", Toast.LENGTH_LONG).show();
+        dbhelper.addHrana(new Hrana("Kaneloni", imageInByte, 600));
 
-        }else{
-            Toast.makeText(this,"Neuspešno", Toast.LENGTH_LONG).show();
-        }
        // db.addContact(new Contact("monkaS", imageInByte));*/
 // display main List view bcard and contact name
 
