@@ -22,7 +22,7 @@ public class Domov extends AppCompatActivity {
         iskanje.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent j = new Intent(v.getContext(), SQLiteDemoActivity.class);
+                Intent j = new Intent(v.getContext(), IskanjeActivity.class);
                 startActivity(j);
             }
         });
@@ -31,7 +31,7 @@ public class Domov extends AppCompatActivity {
         priljubljene.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent j = new Intent(v.getContext(), SQLiteDemoActivity.class);
+                Intent j = new Intent(v.getContext(), PriljubljeniActivity.class);
                 startActivity(j);
             }
         });
@@ -40,7 +40,16 @@ public class Domov extends AppCompatActivity {
         jedilnik.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent j = new Intent(v.getContext(), SQLiteDemoActivity.class);
+                Intent j = new Intent(v.getContext(), JedilnikActivity.class);
+                startActivity(j);
+            }
+        });
+
+        Button maps = (Button) findViewById(R.id.button11);
+        maps.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent j = new Intent(v.getContext(), MapActivity.class);
                 startActivity(j);
             }
         });
