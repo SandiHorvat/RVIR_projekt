@@ -45,14 +45,6 @@
         android:layout_weight="0.16">
 
 
-
-        <Button
-            android:id="@+id/button11"
-            android:layout_width="149dp"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_green_light"
-            android:text="Nalozi seznam"
-            android:textAlignment="center" />
     </LinearLayout>
 
 
