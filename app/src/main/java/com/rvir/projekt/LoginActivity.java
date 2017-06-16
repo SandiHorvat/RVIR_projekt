@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity  {
     DatabaseHelper dbhelper;
     SQLiteDatabase db;
     Cursor cursor;
+    Uporabnik uporabnik;
 
     LoginButton loginButton;
     CallbackManager callbackManager;
@@ -75,12 +76,16 @@ public class LoginActivity extends AppCompatActivity  {
                 String username = et1.getText().toString();
                 String password = et2.getText().toString();
 
+
+
                 String koda = dbhelper.searchPass(username);
                 if(password.equals(koda)){
-                    Intent j = new Intent(v.getContext(), Domov.class);
-                    startActivity(j);
-                }else {
-                    Toast temp = Toast.makeText(LoginActivity.this, "Napacno uporabnisko ime ali geslo!", Toast.LENGTH_SHORT);
+                    Intent i = new Intent(v.getContext(), Domov.class);
+
+
+                    startActivity(i);
+               }else {
+                  Toast temp = Toast.makeText(LoginActivity.this, "Napacno uporabnisko ime ali geslo!", Toast.LENGTH_SHORT);
                     temp.show();
                 }
 

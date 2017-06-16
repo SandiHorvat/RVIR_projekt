@@ -1,11 +1,18 @@
 package com.rvir.projekt;
 
+import android.app.SearchManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -22,6 +29,10 @@ import java.util.List;
 public class IskanjeActivity extends AppCompatActivity {
     ArrayList<Hrana> imageArry = new ArrayList<Hrana>();
     ContactImageAdapter adapter;
+    SearchView searchView;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +41,7 @@ public class IskanjeActivity extends AppCompatActivity {
 
         DatabaseHelper dbhelper = new DatabaseHelper(this);
         dbhelper.open();
+
 
 
 
@@ -78,7 +90,8 @@ public class IskanjeActivity extends AppCompatActivity {
         ListView dataList = (ListView) findViewById(R.id.list);
         dataList.setAdapter(adapter);
 
-        Button isci = (Button) findViewById(R.id.button9);
+
+        Button isci = (Button) findViewById(R.id.button11);
        isci.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -88,5 +101,31 @@ public class IskanjeActivity extends AppCompatActivity {
         });
 
 
+
+
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        doSearchActivateSearch(menu);
+
+        return true;
+    }
+
+
+    private void doSearchActivateSearch(Menu menu) {
+        MenuItem searchItem = menu.findItem(R.id.search);
+        searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+
+        final SearchManager searchManager = (SearchManager)
+                getSystemService(Context.SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(
+                new ComponentName(this, HranaSearch.class)));
+        //searchView.setOnSuggestionListener(this);
+        searchView.setIconifiedByDefault(false);
+    }
+
 }

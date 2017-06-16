@@ -44,6 +44,12 @@ public class Uporabnik {
         this.kalorije = kalorije;
     }
 
+    public Uporabnik(String _username, String _password) {
+        this.ime = _username;
+        this.geslo = _password;
+
+    }
+
     public int getId() {
         return id;
     }

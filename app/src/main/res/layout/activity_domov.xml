@@ -12,33 +12,35 @@
         android:id="@+id/button17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="10dp"
         android:text="Iskanje"
         android:background="@android:color/holo_green_light"
         app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_constraintBottom_creator="1"
         android:layout_marginStart="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="30dp" />
 
     <Button
         android:id="@+id/button18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="447dp"
+        android:layout_marginTop="433dp"
         android:text="Priljubljene"
         android:background="@android:color/holo_green_light"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.467" />
+        app:layout_constraintHorizontal_bias="0.421"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 
     <Button
         android:id="@+id/button20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="447dp"
+        android:layout_marginRight="37dp"
+        android:layout_marginTop="433dp"
         android:text="Jedilnik"
         android:background="@android:color/holo_green_light"
         app:layout_constraintRight_toRightOf="parent"
@@ -46,10 +48,20 @@
         android:layout_marginEnd="32dp" />
 
     <ListView
-        android:layout_width="345dp"
+        android:layout_width="0dp"
         android:layout_height="64dp"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="62dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView18"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="62dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="66dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView17"
@@ -57,8 +69,12 @@
         android:layout_height="wrap_content"
         android:text="Zajtrk"
         android:textSize="24sp"
-        tools:layout_editor_absoluteY="16dp"
-        tools:layout_editor_absoluteX="5dp" />
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView18"
@@ -66,14 +82,28 @@
         android:layout_height="wrap_content"
         android:text="Kosilo"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="163dp" />
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="163dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:layout_width="339dp"
+        android:layout_width="0dp"
         android:layout_height="66dp"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="206dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView19"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="43dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="46dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView18" />
 
     <TextView
         android:id="@+id/textView19"
@@ -81,13 +111,39 @@
         android:layout_height="wrap_content"
         android:text="Večerja"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="288dp" />
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="194dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <ListView
-        android:layout_width="339dp"
+        android:layout_width="0dp"
         android:layout_height="61dp"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="334dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/button17"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="46dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="51dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView19" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:text="Google Maps"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
