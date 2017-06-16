@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="47dp"
             android:layout_weight="1"
-            android:text="@string/iskanje"
+            android:text="Iskanje"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -31,7 +31,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/editTxt_iskanje"
+            android:text="iščite hrano"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -44,12 +44,26 @@
         android:weightSum="1"
         android:layout_weight="0.16">
 
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="0.16"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+
         <Button
             android:id="@+id/button9"
             android:layout_width="149dp"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_green_light"
-            android:text="@string/btn_iskanje"
+            android:text="Isci"
             android:textAlignment="center" />
     </LinearLayout>
 
@@ -58,20 +72,12 @@
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/imgIcon"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="0.71"
-            android:gravity="center_vertical" />
-
-        <TextView
-            android:id="@+id/txtTitle"
-            android:layout_width="80dp"
-            android:layout_height="93dp"
-            android:layout_marginLeft="7dp"
-            android:gravity="center_vertical"
-            android:textSize="14dp" />
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.55" >
+        </ListView>
 
     </LinearLayout>
 </LinearLayout>
