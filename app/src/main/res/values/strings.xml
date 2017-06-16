@@ -68,4 +68,7 @@ No, pa začnimo!</string>
     <string name="title_search">Iskanje</string>
     <string name="title_favourite">Priljubljeno</string>
     <string name="title_activity_iskanje">Iskanje</string>
+    <string name="btn_iskanje">Išči</string>
+    <string name="editTxt_iskanje">iščite hrano</string>
+    <string name="iskanje">Iskanje</string>
 </resources>
