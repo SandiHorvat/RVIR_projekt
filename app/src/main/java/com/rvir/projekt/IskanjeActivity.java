@@ -1,10 +1,13 @@
 package com.rvir.projekt;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -33,7 +36,7 @@ public class IskanjeActivity extends AppCompatActivity {
 
 // get image from drawable
         Bitmap image = BitmapFactory.decodeResource(getResources(),
-                R.drawable.banana);
+                R.drawable.golaz);
 
         /*Bitmap image1 = BitmapFactory.decodeResource(getResources(),
                 R.drawable.monkas);*/
@@ -49,13 +52,13 @@ public class IskanjeActivity extends AppCompatActivity {
 // Inserting Contacts
         Log.d("Insert: ", "Inserting ..");
         //dbhelper.addHrana(new Hrana("Banana", imageInByte, 50));
-        if(dbhelper.addHrana(new Hrana("Banana", imageInByte, 10))){
+        if(dbhelper.addHrana(new Hrana("Golaz", imageInByte, 80))){
             Toast.makeText(this,"Uspešno", Toast.LENGTH_LONG).show();
 
         }else{
             Toast.makeText(this,"Neuspešno", Toast.LENGTH_LONG).show();
         }
-        // db.addContact(new Contact("monkaS", imageInByte));*/
+
 // display main List view bcard and contact name
 
 // Reading all contacts from database
@@ -74,6 +77,15 @@ public class IskanjeActivity extends AppCompatActivity {
                 imageArry);
         ListView dataList = (ListView) findViewById(R.id.list);
         dataList.setAdapter(adapter);
+
+        Button isci = (Button) findViewById(R.id.button9);
+       isci.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent j = new Intent(v.getContext(), IskanjeActivity.class);
+                startActivity(j);
+            }
+        });
 
 
     }
